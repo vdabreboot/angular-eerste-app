@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { Land } from './model/land'
+import { LandService } from './land.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html', 
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   static readonly LANDEN: Land[] = [
     { id: 11, name: "België"},
     { id: 12, name: "Nederland"},
@@ -27,15 +28,17 @@ export class AppComponent {
     name: 'Belgie'
   }
   
-  landen = AppComponent.LANDEN;
+  landen: Land[] = null!;
   selectedLand: Land = null!;
-  totalVotes: number = 0;
-
+  totalVotes: number = 0;  
+  constructor(private landService: LandService) {}
   onSelect(land:Land):void{
     this.selectedLand=land;
   }
   onValueChange(event: number){
     this.totalVotes = event;
   }
-
+  ngOnInit(): void {
+    this.landen = this.landService.getLanden();
+  }
 }
