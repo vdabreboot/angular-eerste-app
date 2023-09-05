@@ -39,6 +39,7 @@ export class AppComponent implements OnInit{
     this.totalVotes = event;
   }
   ngOnInit(): void {
-    this.landService.getLanden().then(landen => this.landen=landen);
+    //this.landService.getLanden().then(landen => this.landen=landen);
+    this.landService.getLanden().subscribe(landen => this.landen = landen);
   }
 }
