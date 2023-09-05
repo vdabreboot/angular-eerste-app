@@ -8,8 +8,7 @@ import { LANDEN } from './mock-landen';
 export class LandService {
 
   /*constructor() { }*/
-  getLanden(): Land[] {
-    return LANDEN;
+  getLanden(): Promise<Land[]> {
+    return Promise.resolve(LANDEN);
   }
-
 }

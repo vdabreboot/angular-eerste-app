@@ -39,6 +39,6 @@ export class AppComponent implements OnInit{
     this.totalVotes = event;
   }
   ngOnInit(): void {
-    this.landen = this.landService.getLanden();
+    this.landService.getLanden().then(landen => this.landen=landen);
   }
 }
