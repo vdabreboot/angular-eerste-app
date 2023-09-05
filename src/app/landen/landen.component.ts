@@ -1,11 +1,11 @@
 import { Component , OnInit} from '@angular/core';
-import { Land } from './model/land'
-import { LandService } from './land.service';
+import { Land } from '../model/land'
+import { LandService } from '../land.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html', 
-  styleUrls: ['./app.component.css']
+  selector: 'app-landen',
+  templateUrl: './landen.component.html', 
+  styleUrls: ['./landen.component.css']
 })
 export class AppComponent implements OnInit{
   static readonly LANDEN: Land[] = [
