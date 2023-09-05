@@ -29,9 +29,13 @@ export class AppComponent {
   
   landen = AppComponent.LANDEN;
   selectedLand: Land = null!;
+  totalVotes: number = 0;
 
   onSelect(land:Land):void{
     this.selectedLand=land;
+  }
+  onValueChange(event: number){
+    this.totalVotes = event;
   }
 
 }
