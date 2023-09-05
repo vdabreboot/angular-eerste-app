@@ -3,26 +3,7 @@ import { Land } from './model/land'
 
 @Component({
   selector: 'app-root',
-  /*#templateUrl: './app.component.html',*/
-  template: `
-    <h1> {{title}}</h1>
-    <h2>Details van {{land.name}}</h2>
-    <ul>
-      <li *ngFor="let l of landen" (click)="onSelect(l)">
-        <span>{{l.id}}</span>{{l.name}}
-      </li>
-    </ul>
-    <div *ngIf="selectedLand">
-      <h2>{{selectedLand.name}} details!</h2>
-      <div>
-        <label>id: </label>{{selectedLand.id}}
-      </div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="selectedLand.name" placeholder="name" [style.background-Color]="selectedLand.name === ''? 'red':'yellow'">
-      </div>
-    </div>
-  `,
+  templateUrl: './app.component.html', 
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
