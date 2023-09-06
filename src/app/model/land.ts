@@ -1,4 +1,5 @@
 export class Land {
-    id: number = -1;
-    name: string = '';
+    id: number = null!;
+    name: string = null!;
+    inwoners: number = null!;
 }

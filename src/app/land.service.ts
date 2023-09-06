@@ -15,4 +15,10 @@ export class LandService {
   getLanden(): Observable<Land[]> {
     return of(LANDEN);
   }
+  getTopLanden(top: number): Observable<Land[]>{
+    return of(LANDEN.sort((a,b) => b.inwoners).slice(0,top));
+  }
+  getLand(id: number): Observable<Land | undefined> {
+    return of(LANDEN.find(land => land.id === id));
+  }
 }
