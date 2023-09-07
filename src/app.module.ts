@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
+import { InMemoryDataService } from './in-memory-data.service';
+
 import { LandDetailsComponent } from './app/land-details/land-details.component';
 import { LandService } from './app/land.service';
 import { LandenComponent } from './app/landen/landen.component';
@@ -21,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     TopInwonersComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, 
+    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule ,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [LandService],
   bootstrap: [AppComponent]
