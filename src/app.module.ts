@@ -10,6 +10,7 @@ import { LandDetailsComponent } from './app/land-details/land-details.component'
 import { LandService } from './app/land.service';
 import { LandenComponent } from './app/landen/landen.component';
 import { TopInwonersComponent } from './app/top-inwoners/top-inwoners.component'
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -20,26 +21,7 @@ import { TopInwonersComponent } from './app/top-inwoners/top-inwoners.component'
     TopInwonersComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule, 
-    RouterModule.forRoot([
-      {
-       path: 'landen' ,
-       component: LandenComponent
-      },
-      {
-        path: "top",
-        component: TopInwonersComponent
-      },
-      { path: "",
-        redirectTo:"/top",
-        pathMatch:'full'
-      },
-      {
-        path: 'detail/:id',
-        component: LandDetailsComponent
-      }
-
-    ])
+    BrowserModule, FormsModule, AppRoutingModule, 
   ],
   providers: [LandService],
   bootstrap: [AppComponent]
