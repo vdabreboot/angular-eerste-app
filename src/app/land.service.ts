@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { Observable , catchError, of, map} from 'rxjs';
 import { Land } from './model/land';
 import { LANDEN } from './mock-landen';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders} from '@angular/common/http';
 
+const httpOptions = { headers: new HttpHeaders({
+  'Content-Type': 'application/json'  })};
 
 @Injectable({
   providedIn: 'root'
 })
 export class LandService {
   private landenUrl = 'api/landen';
+  
   constructor(private http: HttpClient){}
     /*constructor() { }*/
   /*getLanden(): Promise<Land[]> {
@@ -37,6 +40,15 @@ export class LandService {
     return this.http.get<Land>(url)
       .pipe(
         catchError(this.handleError<Land>(`getLand id=${id}`))
+      );
+  }
+  updateLand(land: Land): Observable<any> {
+    return this.http.put(this.landenUrl,land,httpOptions)
+  }
+  addLand(land: Land): Observable<any>{
+    return this.http.post<Land>(this.landenUrl,land,httpOptions)
+      .pipe(
+        catchError(this.handleError<Land>('addLand'))
       );
   }
   handleError<T>(operation = 'operation', result?: T){

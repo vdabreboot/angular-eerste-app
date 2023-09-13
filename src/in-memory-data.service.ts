@@ -15,7 +15,8 @@ export class InMemoryDataService implements InMemoryDbService {
             { id: 17, name: 'Portugal', inwoners: 10834 },
             { id: 18, name: 'Italië', inwoners: 62008 },
             { id: 19, name: 'Zwitserland', inwoners: 8287 },
-            { id: 20, name: 'Duitsland', inwoners: 80723 }
+            { id: 20, name: 'Duitsland', inwoners: 80723 },
+            { id: 21, name: 'Kroatie', inwoners: 80723 }
         ];
         return { landen };
     }

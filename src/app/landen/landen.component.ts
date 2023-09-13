@@ -31,6 +31,7 @@ export class LandenComponent implements OnInit{
   
   landen: Land[] = null!;
   selectedLand: Land = null!;
+  nieuwLand: Land = {} as Land;
   totalVotes: number = 0;  
   constructor(private landService: LandService) {}
   onSelect(land:Land):void{
@@ -42,5 +43,14 @@ export class LandenComponent implements OnInit{
   ngOnInit(): void {
     //this.landService.getLanden().then(landen => this.landen=landen);
     this.landService.getLanden().subscribe(landen => this.landen = landen);
+  }
+  add() : void{
+    if(!this.nieuwLand.name.trim() ||isNaN(this.nieuwLand.inwoners))    
+      return;
+    this.landService.addLand( {name: this.nieuwLand.name , inwoners: this.nieuwLand.inwoners} as Land)
+      .subscribe(land => { 
+        this.landen.push(land)
+        this.nieuwLand = {} as Land
+      })
   }
 }
